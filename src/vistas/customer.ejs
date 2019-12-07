@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+	<title>CRUD NODEJS MySQL</title>
+</head>
+<body>
+	<form action="/add" method="post">
+		<table align="center" border>
+				<tbody>
+					<tr>
+						<td>Nombre</td>
+						<td><input type="text" name="name" placeholder="Nombre"></td>
+					</tr>
+					<tr>
+						<td>Dirección</td>
+						<td><input type="text" name="address" placeholder="Dirección"></td>
+					</tr>
+					<tr>
+						<td>Télefono</td>
+						<td><input type="text" name="phone" placeholder="Télefono"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit">Guardar cliente</button></td> 
+					</tr>
+				</tbody>
+		</table>
+	</form>
+	<br>
+	<table border align="center">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>Nombre</th>
+				<th>Dirección</th>
+				<th>Télefono</th>
+				<th colspan="2">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% if(data) {%>
+			<% for(var i=0; i<data.length; i++) { %>
+				<tr>
+					<td><%= (i+1) %></td>
+					<td><%= data[i].Name %></td>
+					<td><%= data[i].Address%></td>
+					<td><%= data[i].Phone%></td>
+					<td>
+						<a href="/delete/<%= data[i].Id %>">Borrar</a>
+					</td>
+					<td>
+						<a href="/update/<%= data[i].Id %>">Actualzar</a>
+					</td>
+				</tr>
+			<% } %>
+		<% } %>
+		</tbody>
+	</table>
+</body>
+</html>
