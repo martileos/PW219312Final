@@ -1,0 +1,77 @@
+body {
+    background: #9ec4f8;
+    margin: 0px auto;
+}
+header {
+    padding-left: 150px;
+}
+main, footer {
+    padding-left: 160px;
+}
+nav ul {
+    margin-left: 40%;
+}
+nav ul li {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+#mesasForm {
+    font-size: 0.8em;
+}
+#slide-out {
+    background: #9ec4f8;
+    width: 150px;
+}
+#slide-out i {
+    font-size: 8em;
+}
+#slide-out p {
+    font-size: 1.5em;
+    margin: 0px auto;
+}
+#slide-out li:nth-child(even) {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.brand-logo img {
+    margin-left: 1em;
+    width: 100px;
+}
+.btn-mesa {
+    font-size: 0.6em;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.card .row {
+    margin-top: -20px;
+}
+.inline {
+    width: 50px;
+}
+.leyenda {
+    height: 100px;
+}
+.sidenav li>a {
+    font-size: inherit;
+    height: 100%;
+    padding: 0px;
+    padding-top: 15px;
+}
+.sidenav li>a>i.material-icons {
+    float: none;
+    line-height: normal;
+    margin: 0px;
+    width: 100%;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
