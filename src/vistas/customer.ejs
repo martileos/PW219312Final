@@ -1,0 +1,104 @@
+<%= console.log(data)%>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD NodeJs MySQL</title>
+</head>
+<body>
+    <form action="/agregarCliente" method="POST">
+        <table align="center" border>
+            <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input type="text" name="nombres" placeholder="Nombre"></td>
+                </tr>
+                <tr>
+                    <td>Dirección</td>
+                    <td><input type="text" name="apellidos" placeholder="Dirección"></td>
+                </tr>
+                <tr>
+                    <td>Teléfono</td>
+                    <td><input type="text" name="sexo" placeholder="Teléfono"></td>
+                </tr>
+                <tr>
+                    <td>Domicilio</td>
+                    <td><input type="text" name="domicilio" placeholder="domicilio"></td>
+                </tr>
+                <tr>
+                    <td>RFC</td>
+                    <td><input type="text" name="rfc" placeholder="RFC"></td>
+                </tr>
+                <tr>
+                    <td>Télefono</td>
+                    <td><input type="text" name="noTelefono" placeholder="Télefono"></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"><button type="submit">Guardar cliente</button></td>
+                </tr> 
+            </tbody>
+        </table>
+    </form>
+
+    <table border align="center">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(data){ %>
+                <% for(var i = 0; i<data.length; i++){ %>
+                    <tr>
+                        <td><%= (i + 1) %></td>
+                        <td><%= data[i].nombres %></td>
+                        <td><%= data[i].apellidos %></td>
+                        <td><%= data[i].noTelefono %></td>
+                        <td>
+                            <a href="delete/<%=data[i].id %>">Borrar</a>
+                        </td>
+                        <td>
+                            <a href="update/<%=data[i].id %>">Actualizar</a>
+                        </td>
+                    </tr>
+                <% }%>
+            <% } %>
+        </tbody>
+    </table>
+
+    <form action="/agregarPlatillo" method="POST">
+        <table align="center" border>
+            <tbody>
+                <tr>
+                    <td>Nombre Platillo</td>
+                    <td><input type="text" name="nombre_producto" placeholder="Nombre"></td>
+                </tr>
+                <tr>
+                    <td>Tipo</td>
+                    <td><input type="text" name="tipo" placeholder="tipo"></td>
+                </tr>
+                <tr>
+                    <td>Descripcion</td>
+                    <td><input type="text" name="descripcion" placeholder="descripcion"></td>
+                </tr>
+                <tr>
+                    <td>Precio</td>
+                    <td><input type="number" name="precio" placeholder="precio"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Guardar cliente</button></td>
+                </tr> 
+            </tbody>
+        </table>
+    </form>
+
+</body>
+</html>
