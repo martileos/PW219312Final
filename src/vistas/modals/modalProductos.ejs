@@ -1,26 +1,25 @@
 <div id="modalProductos" class="modal">
     <div class="modal-content">
         <h4>Productos</h4>
-        <form class="row">
+        <form class="row" id="formProductos" onSubmit="agregarProducto(event)">
             <div class="input-field col s12">
-                <input type="text" name="clave">
-                <label for="cave">Clave</label>
+                <input type="text" name="nombre">
+                <label for="nombre">Nombre</label>
             </div>
             <div class="input-field col s6">
                 <select name="tipo">
-                    <option value="" disabled selected>Tipo</option>
-                    <option value="platillo">Platillo</option>
+                    <option value="platillo" selected>Platillo</option>
                     <option value="bebida">Bebida</option>
                 </select>
                 <label for="tipo">Tipo</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" name="descripcion">
-                <label for="descripcion">Descripcion</label>
-            </div>
-            <div class="input-field col s12">
                 <input type="text" name="precio">
                 <label for="precio">Precio</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea type="text" name="descripcion" class="materialize-textarea"></textarea>
+                <label for="descripcion">Descripcion</label>
             </div>
             <div class="col 12 right">
                 <button type="submit" class="waves-effect waves-light btn-small green">Guardar</button>

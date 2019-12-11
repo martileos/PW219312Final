@@ -13,7 +13,7 @@ controller.list = (req, res) => {
 controller.crear = (req, res) => {
 	const data = req.body;
 	req.getConnection((err, conn) => {
-		return conn.query('INSERT INTO platillo set ?', [data], (err, rows) => {
+		return conn.query('INSERT INTO PLATILLO set ?', [data], (err, rows) => {
 			if (err) {
 				return res.status(400).json({message:"No se guardaron los datos del platillo."});
 			} else {
