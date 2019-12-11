@@ -13,8 +13,7 @@ function agregarProducto(ev) {
         nombre_producto: $("input[name='nombre']").val(),
         descripcion: $("textarea[name='descripcion']").val(),
         precio: $("input[name='precio']").val(),
-        tipo: $("select[name='tipo']").val(),
-        estatus: true
+        tipo: $("select[name='tipo']").val()
     };
 
     $.ajax({
