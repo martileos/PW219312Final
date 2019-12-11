@@ -31,23 +31,35 @@ controller.resgistrar_mesa = (req, res) => {
 		});
 	})
 }
-controller.delete = (req, res) => {
-	const { id } = req.params;
-	req.getConnection((err,conn)=>{
-		conn.query('delete from customers where id=?',[id], (err,rows)=>{
-			res.redirect('/');
-		});
-	})
+
+//Actualizar datos de la mesa ------> Elaborado por Kevin Lizarraga
+controller.actualizarMesa = (req, res) =>{
+    const data = req.body;
+    const { id } = req.params;
+    console.log(data);
+    req.getConnection((err,conn) =>{
+        conn.query("UPDATE MESA SET ? WHERE id_mesa = ?", [data, id], (err, rows) => {
+            if(err){
+                res.status(400).json({message:"No se pudo actualizar la mesa."});
+            }else{
+                res.status(200).json({message:"Mesa actualizada correctamente."});
+            }
+        })
+    })
 }
-controller.edit = (req, res) => {
+
+//Consultar mesa ------> Elaborado por Luis Ibarra
+controller.consultarMesa = (req, res) => {
 	const { id } = req.params;
 	req.getConnection((err,conn)=>{
-		conn.query('select * from customers where id=?',[id], (err,customer)=>{
+		conn.query('SELECT * FROM MESA WHERE id_mesa=?',[id],(err,rows)=>{
 			//Llamar a la pantalla de edicion de datos
+			console.log(rows)
 			res.render('customerEdit',{
-				data: customer[0]
+				data: rows[0]
 			})
 		});
 	})
 }
+
 module.exports= controller;
