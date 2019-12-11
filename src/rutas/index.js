@@ -14,6 +14,8 @@ rutas.get("/productos", platillosController.list);
 //POST
 rutas.post("/agregarCliente", bodyParser.json(), customerController.agregarCliente);
 rutas.post("/actualizarCliente", bodyParser.json(), customerController.actualizarCliente);
+rutas.post("/datosCuenta", bodyParser.json(), customerController.listCta);
+rutas.post("/cobrarCuenta", bodyParser.json(), customerController.cobrarCuenta);
 rutas.post("/borrarCliente", bodyParser.json(), customerController.deleteCliente);
 rutas.post("/agregarPlatillo", bodyParser.json(), platillosController.crear);
 rutas.post("/actualizarPlatillo", bodyParser.json(), platillosController.update);
