@@ -1,0 +1,89 @@
+<%- include('templates/head', {title: 'Productos'}); %>
+<body>
+    <%- include('templates/menu'); %>
+    <%- include('templates/header'); %>
+    <main>
+        
+        <section>
+            <li>Productos</li>
+            <article id="art01">
+                Platillos
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Platillo</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Pollo Frito</td>
+                            <td>$100</td>
+                            <td>
+                                <a class="btn-small btn-mesa blue lighten-1 modal-trigger" href="#modalProductos">Editar</a>
+                                <a class="btn-small btn-mesa red modal-trigger" href="#modalEliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Pollo</td>
+                            <td>$100</td>
+                            <td>
+                                <a class="btn-small btn-mesa blue lighten-1 modal-trigger" href="#modalProductos">Editar</a>
+                                <a class="btn-small btn-mesa red modal-trigger" href="#modalEliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article id="art02">
+                Bebidas
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Bebida</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>B1</td>
+                            <td>Coca-Cola</td>
+                            <td>$15</td>
+                            <td>
+                                <a class="btn-small btn-mesa blue lighten-1 modal-trigger" href="#modalProductos">Editar</a>
+                                <a class="btn-small btn-mesa red modal-trigger" href="#modalEliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B2</td>
+                            <td>Sprite</td>
+                            <td>$15</td>
+                            <td>
+                                <a class="btn-small btn-mesa blue lighten-1 modal-trigger" href="#modalProductos">Editar</a>
+                                <a class="btn-small btn-mesa red modal-trigger" href="#modalEliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article id="art03">
+                <a class="btn-small btn-prod green modal-trigger" href="#modalProductos">Agregar producto</a>
+            </article>
+        </section>
+        
+        <%- include('modals/modalProductos'); %>
+        <%- include('modals/modalEliminar'); %>
+    </main>
+    <%- include('templates/scripts'); %>
+</body>
+</html>

@@ -3,8 +3,8 @@ const controller = {};
 // Consultar platillos y bebidas
 controller.list = (req, res) => {
 	req.getConnection((err, conn) => {
-		return conn.query('SELECT * FROM platillo', (err, platillo) => {
-			console.log(platillo);
+		return conn.query('SELECT * FROM PLATILLO', (err, platillo) => {
+			res.render('productos', {data: platillo});
 		});
 	})
 }

@@ -2,11 +2,11 @@ const controller = {};
 
 controller.list = (req, res) =>{
     req.getConnection((err, conn) => {
-        conn.query("Select * from clientes",(err, customers) =>{
+        conn.query("Select * from CLIENTES",(err, customers) =>{
             if(err){
                 res.json(err);
             }
-            res.render("customer", {
+            res.render("clientes", {
                 data: customers
             })
         });

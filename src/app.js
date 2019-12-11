@@ -10,6 +10,7 @@ const indiceRutas = require("./rutas/index")
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "vistas"));
+app.use(express.static(__dirname + '/vistas/assets'));
 
 //Middleware
 app.use(myConnection(mysql,{
@@ -17,7 +18,7 @@ app.use(myConnection(mysql,{
     user:   "root",
     password:   "",
     port:   3306,
-    database:   "restaurante"
+    database:   "Restaurante"
 }, "single"));
 app.use(express.urlencoded({extended: false}));
 

@@ -3,9 +3,13 @@ const bodyParser = require('body-parser');
 const rutas = express.Router();
 const customerController  = require("../Controles/customerController");
 const platillosController = require("../Controles/platillosController");
+const mesaController = require("../controllers/MesaController");
 
 //GET
-rutas.get("/", customerController.list);
+rutas.get("/", mesaController.list);
+rutas.get("/clientes", customerController.list);
+rutas.get("/productos", platillosController.list);
+
 
 //POST
 rutas.post("/agregarCliente", bodyParser.json(), customerController.agregarCliente);

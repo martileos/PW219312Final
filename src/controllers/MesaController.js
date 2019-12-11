@@ -2,13 +2,13 @@ const controller = {};
 
 controller.list = (req, res) => {
 	req.getConnection((err,conn)=>{
-		conn.query('select * from customers',(err,customers)=>{
+		conn.query('select * from MESA',(err,mesas)=>{
 			if (err) {
-				res.json(err)
+				return res.status(500).json(err);
 			}
 			//console.log(customers);
-			res.render('customer',{
-				data: customers
+			res.render('mesas',{
+				data: mesas
 			})
 		})
 	})
