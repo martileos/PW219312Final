@@ -41,34 +41,33 @@ controller.agregarPlatillo = (req, res) => {
     })
 }
 
-controller.actualizarMesa = (req, res) =>{
-    const data = req.body;
-    const { id } = req.params;
-    console.log(data);
-    req.getConnection((err,conn) =>{
-        conn.query("UPDATE SET ? WHERE id_mesa = ?", [data, id], (err, rows) => {
-            if(err){
-                res.status(400).json({message:"No se pudo actualizar la mesa."});
-            }else{
-                res.status(200).json({message:"Mesa actualizada correctamente."});
-            }
-        })
-    })
-}
-
 controller.actualizarCliente = (req, res) =>{
     const data = req.body;
     const { id } = req.params;
     console.log(data);
     req.getConnection((err,conn) =>{
-        conn.query("UPDATE clientes SET ? WHERE id_mesa = ?", [data, id], (err, rows) => {
+        conn.query("UPDATE CLIENTES SET ? WHERE id = ?", [data, id], (err, rows) => {
             if(err){
-                res.status(400).json({message:"No se pudo actualizar la mesa."});
+                return res.status(400).json({message:"No se pudieron actualizar los datos del cliente."});
             }else{
-                res.status(200).json({message:"Mesa actualizada correctamente."});
+                return res.status(200).json({message:"Datos del cliente actualizados correctamente."});
             }
         })
     })
+}
+
+// Eliminar registros de clientes
+controller.deleteCliente = (req, res) => {
+	const { id } = req.params;
+	req.getConnection((err,conn)=>{
+		conn.query('UPDATE CLIENTES SET estatus = 1 WHERE id = ? AND  id NOT IN(SELECT id_cliente FROM ASIG_MESA WHERE estatus = 0)',[id], (err,rows)=>{
+			if(err){
+                return res.status(400).json({message:"No se pudo eliminar el cliente."});
+            }else{
+                return res.status(200).json({message:"Cliente eliminado satisfactoriamente."});
+            }
+		});
+	})	
 }
 
 module.exports = controller;
