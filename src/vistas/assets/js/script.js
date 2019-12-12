@@ -29,4 +29,6 @@ function agregarProducto(ev) {
             console.log(error)
         }
     });
+
+    location.reload();
 }
